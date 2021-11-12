@@ -10,4 +10,5 @@ kubectl create configmap bookinfo-dev-ratings-mongodb-initdb \
   --from-file=databases/ratings_data.json \
   --from-file=databases/script.sh
 
-kubectl apply -f k8s/
+helm install -f k8s/helm-values/values-bookinfo-dev-ratings-mongodb.yaml \
+bookinfo-dev-ratings-mongodb bitnami/mongodb --version 10.28.4
